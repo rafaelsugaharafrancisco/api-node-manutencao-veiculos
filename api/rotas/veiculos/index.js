@@ -9,8 +9,8 @@ roteador.get('/', async (req, res) => {
 
 roteador.post('/', async (req, res) => {
     const veiculo = new Veiculo(req.body)
-    const resultado = await tabelaVeiculo.criar(veiculo.requisicao())
-    res.send(JSON.stringify(veiculo.resposta(resultado)))
+    await veiculo.criar()
+    res.send(JSON.stringify(veiculo))
 })
 
 module.exports = roteador

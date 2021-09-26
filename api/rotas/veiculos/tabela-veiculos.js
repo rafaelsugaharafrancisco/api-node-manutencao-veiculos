@@ -4,7 +4,7 @@ module.exports = {
     listar () {
         return modelo.findAll()
     },
-    criar (veiculo) {
+    inserir (veiculo) {
         return modelo.create(veiculo)
     }
 }
