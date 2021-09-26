@@ -14,6 +14,10 @@ const colunas = {
         type: Sequelize.INTEGER,
         allowNull: false
     },
+    placa:{
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     categoria:{
         type: Sequelize.ENUM('moto', 'caminhão')
     }
