@@ -28,7 +28,8 @@ roteador.put('/:id', async (req, res) => {
         const dadosRequisicao = Object.assign({}, req.body, {id: req.params.id})
         const veiculo = new Veiculo(dadosRequisicao)
         await veiculo.atualiza()
-        res.end()
+        res.send(JSON.stringify(dadosRequisicao))
+//        res.end()
     } catch (e) {
         res.send(JSON.stringify({mensagem: e.message}))
     }
