@@ -27,6 +27,19 @@ class Veiculo {
         this.versao = resultado.versao
     }
 
+    async pesquisaPorId() {
+        const encontrado = await tabelaVeiculo.pesquisarPorId(this.id)
+
+        this.marca = encontrado.marca
+        this.modelo = encontrado.modelo
+        this.ano = encontrado.ano
+        this.placa = encontrado.placa
+        this.categoria = encontrado.categoria
+        this.dataCriacao = encontrado.dataCriacao
+        this.dataAtualizacao = encontrado.dataAtualizacao
+        this.versao = encontrado.versao
+    }
+
     requisicao() {
         const veiculo = {
             marca: this.marca,

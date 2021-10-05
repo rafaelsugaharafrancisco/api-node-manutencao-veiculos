@@ -13,4 +13,14 @@ roteador.post('/', async (req, res) => {
     res.send(JSON.stringify(veiculo))
 })
 
+roteador.get('/:id', async (req, res) => {
+    try {
+        const veiculo = new Veiculo({id: req.params.id})
+        await veiculo.pesquisaPorId()
+        res.send(JSON.stringify(veiculo))
+    } catch(e) {
+        res.send(JSON.stringify({mensagem: e.message}))
+    }
+})
+
 module.exports = roteador
