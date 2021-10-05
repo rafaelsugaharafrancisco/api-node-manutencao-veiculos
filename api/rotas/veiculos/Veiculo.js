@@ -13,6 +13,10 @@ class Veiculo {
         this.versao = versao
     }
 
+    async lista() {
+        return await tabelaVeiculo.listar()
+    }
+
     async criar() {
         const resultado = await tabelaVeiculo.inserir({
             marca: this.marca,

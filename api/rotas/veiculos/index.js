@@ -1,10 +1,10 @@
 const roteador = require('express').Router()
-const tabelaVeiculo = require('./tabela-veiculos')
 const Veiculo = require('./Veiculo')
 
 roteador.get('/', async (req, res) => {
-    const resultado = await tabelaVeiculo.listar()
-    res.send(JSON.stringify(resultado))
+    const veiculo = new Veiculo({})
+    const veiculos = await veiculo.lista()
+    res.send(JSON.stringify(veiculos))
 })
 
 roteador.post('/', async (req, res) => {
