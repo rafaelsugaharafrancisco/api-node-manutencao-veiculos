@@ -23,4 +23,15 @@ roteador.get('/:id', async (req, res) => {
     }
 })
 
+roteador.put('/:id', async (req, res) => {
+    try {
+        const dadosRequisicao = Object.assign({}, req.body, {id: req.params.id})
+        const veiculo = new Veiculo(dadosRequisicao)
+        await veiculo.atualiza()
+        res.end()
+    } catch (e) {
+        res.send(JSON.stringify({mensagem: e.message}))
+    }
+})
+
 module.exports = roteador

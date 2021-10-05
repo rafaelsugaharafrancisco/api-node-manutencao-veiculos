@@ -17,5 +17,12 @@ module.exports = {
         }
 
         return encontrado
+    },
+    async atualizar(id, veiculo) {
+        const resultado = await modelo.update(veiculo,{where:{id: id}})
+
+        if (resultado[0] === 0) {
+            throw new Error(`Não atualizado. Pois não existe id ${id}`)
+        }
     }
 }

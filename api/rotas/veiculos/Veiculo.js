@@ -40,6 +40,17 @@ class Veiculo {
         this.versao = encontrado.versao
     }
 
+    async atualiza() {
+ //       await tabelaVeiculo.pesquisarPorId(this.id)
+        await tabelaVeiculo.atualizar(this.id, {
+            marca: this.marca,
+            modelo: this.modelo,
+            ano: this.ano,
+            placa: this.placa,
+            categoria: this.categoria
+        })
+    }
+
     requisicao() {
         const veiculo = {
             marca: this.marca,
