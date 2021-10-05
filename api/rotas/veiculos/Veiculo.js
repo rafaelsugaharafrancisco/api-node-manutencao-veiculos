@@ -51,6 +51,11 @@ class Veiculo {
         })
     }
 
+    async remove() {
+        await tabelaVeiculo.pesquisarPorId(this.id)
+        await tabelaVeiculo.remover(this.id)
+    }
+
     requisicao() {
         const veiculo = {
             marca: this.marca,

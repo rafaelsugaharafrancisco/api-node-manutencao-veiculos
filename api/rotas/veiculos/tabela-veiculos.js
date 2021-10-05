@@ -24,5 +24,8 @@ module.exports = {
         if (resultado[0] === 0) {
             throw new Error(`Não atualizado. Pois não existe id ${id}`)
         }
+    },
+    remover(id) {
+        modelo.destroy({ where: {id: id} })
     }
 }

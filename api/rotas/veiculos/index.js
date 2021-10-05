@@ -35,4 +35,14 @@ roteador.put('/:id', async (req, res) => {
     }
 })
 
+roteador.delete('/:id', async (req, res) => {
+    try {
+        const veiculo = new Veiculo({ id: req.params.id })
+        await veiculo.remove()
+        res.end()
+    } catch (e) {
+        res.send(JSON.stringify({ mensagem: e.message }))
+    }
+})
+
 module.exports = roteador
